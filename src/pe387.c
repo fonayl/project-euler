@@ -7,8 +7,9 @@ unsigned long harshadsum=0;
 
 // Should be way faster..
 int isPrime(unsigned long num) {
-  if (num<=1) return false;
-  for (unsigned long i=2; i*i<=num; i++) {
+  if (num<2) return false;
+  if (num!=2 && num%2==0) return false;
+  for (unsigned long i=3; i*i<=num; i+=2) {
     if (num % i ==0) return false;
   }
   return true;
